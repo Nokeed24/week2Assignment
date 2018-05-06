@@ -27,7 +27,7 @@ export default class CartItem extends PureComponent {
     return (
       <li className="CartItem">
         <p className="name">{name}</p>
-        <p className="price">{price}</p>
+        <p className="price">Price: {price}</p>
         <p className="quantity">Quantity: {quantity}</p>
         <PlusOneButton onClick={this.incrementQuantity} />
       </li>

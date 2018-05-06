@@ -8,13 +8,14 @@ li.CartItem {
 li.CartItem p {
   flex: 1;
   padding: 12px 24px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 li.CartItem p.name {
+  display: flex;
   font-weight: bold;
 }
 
 li.CartItem p.price {
-  max-width: 50px;
+  max-width: 100px;
 }

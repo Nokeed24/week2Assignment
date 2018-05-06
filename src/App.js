@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import Title from './components/Title'
-import CartItem from './components/CartItem'
-import CheckoutButton from './components/CheckoutButton'
 import Board from './containers/Board'
 import Clock from 'react-live-clock';
 import './App.css'
@@ -27,8 +24,10 @@ const products = [
   }
 ]
 
+let totalAmount = 0
+
 class App extends Component {
-  state = { products }
+  state = { products, totalAmount }
 
   updateProduct = (productId, updates) => {
     this.setState({
@@ -39,16 +38,19 @@ class App extends Component {
     })
   }
 
+  
+
   render() {
     return (
       <div className="App">
         <h1 className="Title">Shopping Cart</h1>
         <Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} />
         <Board
+          totalAmount={this.state.totalAmount}
           products={this.state.products}
           updateProduct={this.updateProduct}
+          incrementTotal={this.incrementTotal}
         />
-        <CheckoutButton content="Checkout!"/>
       </div>
     )
   }
