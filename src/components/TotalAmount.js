@@ -12,12 +12,10 @@ export default class totalAmount extends PureComponent {
   }
 
   incrementTotal = () => {
-    const { products, totalAmount, onChange } = this.props
-    // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    const { products, onChange } = this.props
     let newTotal = 0
     products.forEach(function(element){
       newTotal += element.price * element.quantity
-      console.log(newTotal)
     })
     onChange(newTotal)
 

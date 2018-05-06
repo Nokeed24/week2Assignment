@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="Title">Shopping Cart</h1>
-        <Clock format={'HH:mm:ss'} ticking={true} timezone={'Europe/Amsterdam'} />
+        <Clock format={'HH:mm'} ticking={true} timezone={'Europe/Amsterdam'} />
         <Board
           totalAmount={this.state.totalAmount}
           products={this.state.products}
