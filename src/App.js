@@ -24,7 +24,7 @@ const products = [
   }
 ]
 
-let totalAmount = 0
+const totalAmount = 0
 
 class App extends Component {
   state = { products, totalAmount }
@@ -38,7 +38,11 @@ class App extends Component {
     })
   }
 
-  
+  updateTotal = (total) => {
+    this.setState({
+      totalAmount : total
+    })
+  }
 
   render() {
     return (
@@ -49,7 +53,7 @@ class App extends Component {
           totalAmount={this.state.totalAmount}
           products={this.state.products}
           updateProduct={this.updateProduct}
-          incrementTotal={this.incrementTotal}
+          updateTotal={this.updateTotal}
         />
       </div>
     )

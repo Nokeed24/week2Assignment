@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import CartItem, {productShape} from '../components/CartItem'
-import CheckoutButton from '../components/CheckoutButton'
+// import CheckoutButton from '../components/CheckoutButton'
 import TotalAmount from '../components/TotalAmount'
 import PropTypes from 'prop-types'
 import './Board.css'
@@ -9,11 +9,12 @@ export default class Board extends PureComponent {
   static propTypes = {
     products: PropTypes.arrayOf(productShape).isRequired,
     updateProduct: PropTypes.func.isRequired,
-    incrementTotal: PropTypes.func.isRequired
+    updateTotal: PropTypes.func.isRequired,
+    totalAmount: PropTypes.number.isRequired
   }
 
   render() {
-    const { totalAmount, products, updateProduct } = this.props
+    const { totalAmount, products, updateProduct, updateTotal } = this.props
     // products.sort(function(a,b) {
     //   return a.price - b.price;
     // });
@@ -27,8 +28,7 @@ export default class Board extends PureComponent {
               { ...player } />
           ))}
         </ul>
-        <TotalAmount totalAmount={totalAmount} />
-        <CheckoutButton onClick={this.incrementTotal} content="Checkout!"/>
+        <TotalAmount onChange={updateTotal} products={products} totalAmount={totalAmount} />
       </div>
     )
   }
